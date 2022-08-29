@@ -1,18 +1,20 @@
-﻿@model IEnumerable<Lanches.Project.Models.Lanche>
+﻿@using Lanches.Project.ViewModels
+@model LancheListViewModel
 
-<div class="d-flex justify-content-center ">
-    <h2 class="text-center">@ViewData["Titulo"]</h2>
-    <h3 class="text-center">@ViewData["Data"]</h3>
-    <hr />
-    <h3 class="text-center">@ViewBag.Total @ViewBag.TotalLanches</h3>
-    <hr />
-    @{
-        foreach (var item in Model) {
-            <div class="d-flex align-items-center flex-column">
-                <h4>Nome: @item.NomeLanche</h4>
-                <p><img src="@item.ImagemUrl"/></p>
-                <p>Preço: @item.Preco.ToString("c")</p>
-            </div>
-        }
-    }
-</div>
+<div class="d-flex justify-content-center flex-column">
+    <div>
+        <h2 class="text-center">@ViewData["Titulo"]</h2>
+        <h3 class="text-center">@ViewData["Data"]</h3>
+        <hr />
+        <h3 class="text-center">@ViewBag.Total @ViewBag.TotalLanches</h3>
+        <hr />
+    </div>
+    <div class="container d-flex flex-wrap align-items-center justify-content-center ">
+        @{
+            foreach (var item in Model.lancheList) 
+            {
+                    <partial name="_LancheResumo" for="@item"/>
+                }
+            }
+        </div>
+    </div>

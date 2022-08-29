@@ -1,0 +1,8 @@
+﻿@model Lanche
+
+<div class="text-center" style="min-width: 50%;">
+    <p><img style="height: 100px;" src="@Model.ImagemUrl"/></p>
+    <h4>@Model.NomeLanche</h4>
+    <p>Preço: @Model.Preco.ToString("c")</p>
+    <p>Descrição: @Model.DescricaoCurta</p>
+</div>
